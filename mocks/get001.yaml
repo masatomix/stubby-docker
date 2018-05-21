@@ -1,0 +1,11 @@
+-
+  request:
+    url: ^/ajax/hoge/$
+    method: GET
+  response:
+    -
+      status: 200
+      headers:
+        content-type: application/json
+      file: mocks/get001.json
+
