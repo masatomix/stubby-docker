@@ -6,8 +6,8 @@ MAINTAINER masatomix
 #EXPOSE 7443
 
 RUN apt update
-RUN apt install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_8.x |  bash -
+RUN apt install -y curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_11.x |  bash -
 RUN apt install -y nodejs
 RUN apt install -y git
 RUN apt install -y vim

@@ -1,18 +1,15 @@
 # stubby
 
+
+## Build
+
 ```
 # git clone https://github.com/masatomix/stubby-docker.git
 # cd stubby-docker/
-# npm install
-# grunt serve
+# sudo docker build ./ -t my-stubby-npm
 ```
 
-```
-# curl http://localhost:3000/ajax/hoge/
-{"param1":{"v1Param1":"v1Value1"}}
-```
-
-起動コマンド
+## 起動
 ```
 # docker run  \
  -it --name my-stubby  \
@@ -20,12 +17,25 @@
  my-stubby-npm
 ```
 
+## つかってみる
+```
+# curl http://localhost:3000/ajax/hoge/
+{"param1":{"v1Param1":"v1Value1"}}
+```
+
 
 独自の設定を使うには
+
 ```
+# ls -lrt `pwd`/mocks/
+合計 12
+-rw-r--r-- 1 vagrant vagrant  35  5月 26  2018 get002.json
+-rwxr-xr-x 1 vagrant vagrant 338  5月 26  2018 config.yaml
+-rwxr-xr-x 1 vagrant vagrant  36 12月 29 17:06 get001.json
+
 # docker run  \
  -it --name my-stubby  \
  -p 8882:8882 \
- -v /docker/hostvolumes/stubby-npm/mocks:/home/stubby/mocks \
+ -v `pwd`/mocks:/home/stubby/mocks \
  my-stubby-npm
 ```
