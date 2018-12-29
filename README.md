@@ -1,7 +1,23 @@
-# stubby
+Stubbyを起動するDockerコンテナ
 
 
-## Build
+## docker-composeがある場合
+
+```
+# git clone https://github.com/masatomix/stubby-docker.git
+# cd stubby-docker/
+# sudo docker-compose up -d
+```
+
+
+## つかってみる
+```
+# curl http://localhost:8882/ajax/get001/
+{"param1":{"v1Param1":"v1Value1"}}
+```
+
+
+## Build と起動(docker-composeがないばあい)
 
 ```
 # git clone https://github.com/masatomix/stubby-docker.git
@@ -9,18 +25,11 @@
 # sudo docker build ./ -t my-stubby-npm
 ```
 
-## 起動
 ```
 # docker run  \
  -it --name my-stubby  \
  -p 8882:8882 \
  my-stubby-npm
-```
-
-## つかってみる
-```
-# curl http://localhost:3000/ajax/hoge/
-{"param1":{"v1Param1":"v1Value1"}}
 ```
 
 
